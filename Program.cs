@@ -13,13 +13,13 @@ namespace Assignment1_F19
             int n2 = 5;
             printSeries(n2);
 
-            //int n3 = 5;
-            //printTriangle(n3);
+            int n3 = 5;
+            printTriangle(n3);
 
-            //int[] J = new int[] { 1, 3 };
-            //int[] S = new int[] { 1, 3, 3, 2, 2, 2, 2, 2 };
-            //int r4 = numJewelsInStones(J, S);
-            //Console.WriteLine(r4);
+            int[] J = new int[] { 1, 3 };
+            int[] S = new int[] { 1, 3, 3, 2, 2, 2, 2, 2 };
+            int r4 = numJewelsInStones(J, S);
+            Console.WriteLine(r4);
 
             //int[] arr1 = new int[] { 1, 2, 5, 6, 7, 8, 9 };
             //int[] arr2 = new int[] { 1, 2, 3, 4, 5 };
@@ -56,12 +56,12 @@ namespace Assignment1_F19
                     if (selfDividing(j))
                         list_store.Add(j); 
                 }
-                Console.WriteLine("The self-divisible numbers between " + x + " and " + y + " zare :");
+                Console.WriteLine("The self-divisible numbers between " + x + " and " + y + " are :");
                 foreach (int value in list_store)
                 {
-                    Console.WriteLine(value);
+                    Console.Write(value + " ");
                 }
-
+                Console.WriteLine();
             }
 
             catch
@@ -72,23 +72,24 @@ namespace Assignment1_F19
 
         public static void printSeries(int n)
         {
+            Console.WriteLine();
             try
             {
-                int limit = 5;
                 int counter = 0;
-                for (int i = 1; i <= limit; i++)
+                for (int i = 1; i <= n; i++)
                     {
-                        for (int j = 1; (j <= i && counter < limit); j++ )
+                        for (int j = 1; (j <= i && counter < n); j++ )
                         {
                             Console.Write(i);
-                        if (counter < limit - 1)
+                        if (counter < n - 1) // To avoid getting "," at end of string
                             Console.Write(", ");
                             counter++;
                         }
-                                
 
                     }
-           }
+                Console.WriteLine();
+
+            }
             catch
             {
                 Console.WriteLine("Exception occured while computing printSeries()");
@@ -99,7 +100,21 @@ namespace Assignment1_F19
         {
             try
             {
-                // Write your code here
+                Console.WriteLine();
+                for (int i = n; i > 0; i--)
+                {
+                    for (int j = 0; j < n - i; j++)
+
+                    {
+                        Console.Write(" ");
+
+                    }
+                    for (int j = 0; j < (i * 2) - 1; j++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
+                }
             }
             catch
             {
@@ -111,14 +126,43 @@ namespace Assignment1_F19
         {
             try
             {
-                // Write your code here
+                int[] jewels_array = new int[S.Length];
+                int count = 0;
+                for (int i = 0; i < J.Length; i++)
+                {
+                    for (int j = 0; j < S.Length; j++)
+                    {
+                        if (J[i] == S[j])
+                        {
+                            jewels_array[count] = S[j];
+                            count++;
+
+                        }
+                    }
+                }
+                if (count != 0)
+                {
+                    Console.Write(count + " (since ");
+                    for (int i = 0; i < count; i++)
+                    {
+                        Console.Write(jewels_array[i] + " ");
+                    }
+                    Console.WriteLine(" are jewels)");
+                }
+                else
+                {
+                    Console.WriteLine(count);
+                }
+
             }
             catch
             {
                 Console.WriteLine("Exception occured while computing numJewelsInStones()");
             }
+            Console.WriteLine();
 
             return 0;
+
         }
 
         public static int[] getLargestCommonSubArray(int[] a, int[] b)
