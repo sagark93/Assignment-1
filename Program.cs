@@ -34,10 +34,9 @@ namespace Assignment1_F19
         {
             try
             {
-                //int[] list = new int[y];
-                List<int> list_store = new List<int>();
+                List<int> list_store = new List<int>(); //Defining list to store Self dividing numbers
 
-                bool selfDividing(int n)
+                bool selfDividing(int n) // Method to find whether number is self-dividing
                 {
                     int i = n;
                     while (n > 0)
@@ -51,13 +50,13 @@ namespace Assignment1_F19
 
                 }
 
-                for (int j = x; j <= y; j++)
+                for (int j = x; j <= y; j++) //Loop to add numbers to List
                 {
                     if (selfDividing(j))
                         list_store.Add(j); 
                 }
                 Console.WriteLine("The self-divisible numbers between " + x + " and " + y + " are :");
-                foreach (int value in list_store)
+                foreach (int value in list_store) //To display values in list
                 {
                     Console.Write(value + " ");
                 }
@@ -75,7 +74,7 @@ namespace Assignment1_F19
             Console.WriteLine();
             try
             {
-                int counter = 0;
+                int counter = 0; // Initialize counter
                 for (int i = 1; i <= n; i++)
                     {
                         for (int j = 1; (j <= i && counter < n); j++ )
@@ -101,12 +100,12 @@ namespace Assignment1_F19
             try
             {
                 Console.WriteLine();
-                for (int i = n; i > 0; i--)
+                for (int i = n; i > 0; i--) 
                 {
                     for (int j = 0; j < n - i; j++)
 
                     {
-                        Console.Write(" ");
+                        Console.Write(" "); // To get the required spaces
 
                     }
                     for (int j = 0; j < (i * 2) - 1; j++)
@@ -126,15 +125,15 @@ namespace Assignment1_F19
         {
             try
             {
-                int[] jewels_array = new int[S.Length];
+                int[] jewels_array = new int[S.Length]; // Array to store values of jewels which match
                 int count = 0;
                 for (int i = 0; i < J.Length; i++)
                 {
                     for (int j = 0; j < S.Length; j++)
                     {
-                        if (J[i] == S[j])
+                        if (J[i] == S[j]) // Comparing the 2 arrays
                         {
-                            jewels_array[count] = S[j];
+                            jewels_array[count] = S[j]; //Adding values to jewels array
                             count++;
 
                         }
@@ -142,7 +141,7 @@ namespace Assignment1_F19
                 }
                 if (count != 0)
                 {
-                    Console.Write(count + " (since ");
+                    Console.Write(count + " (since "); // To get the format of the values of jewels which matched
                     for (int i = 0; i < count; i++)
                     {
                         Console.Write(jewels_array[i] + " ");
@@ -151,7 +150,7 @@ namespace Assignment1_F19
                 }
                 else
                 {
-                    Console.WriteLine(count);
+                    Console.WriteLine(count); // To get value as 0 if no jewels have matched
                 }
 
             }
