@@ -21,15 +21,16 @@ namespace Assignment1_F19
             int r4 = numJewelsInStones(J, S);
             Console.WriteLine(r4);
 
-            //int[] arr1 = new int[] { 1, 2, 5, 6, 7, 8, 9 };
-            //int[] arr2 = new int[] { 1, 2, 3, 4, 5 };
-            //int[] r5 = getLargestCommonSubArray(arr1, arr2);
-            //Console.WriteLine(r5);
+            int[] arr1 = new int[] { 1, 2, 5, 6, 7, 8, 9 };
+            int[] arr2 = new int[] { 1, 2, 3, 4, 5 };
+            int[] r5 = getLargestCommonSubArray(arr1, arr2);
+            Console.WriteLine(r5);
 
-            //solvePuzzle();
+            solvePuzzle();
         }
 
 
+        // Method for Self-dividing numbers
         public static void printSelfDividingNumbers(int x, int y)
         {
             try
@@ -39,14 +40,14 @@ namespace Assignment1_F19
                 bool selfDividing(int n) // Method to find whether number is self-dividing
                 {
                     int i = n;
-                    while (n > 0)
+                    while (n > 0) 
                     {
                         int d = n % 10;
                         n /= 10;
                         if (d == 0 || (i % d) > 0)
-                            return false;
-                    }
-                    return true;
+                            return false; // Method returns false if number is not self-dividing
+                    } 
+                    return true; // Method returns true if number is self-dividing
 
                 }
 
@@ -68,16 +69,17 @@ namespace Assignment1_F19
                 Console.WriteLine("Exception occured while computing printSelfDividingNumbers()");
             }
         }
-
+        
         public static void printSeries(int n)
         {
             Console.WriteLine();
             try
             {
                 int counter = 0; // Initialize counter
+                // Below is the For loop to print the required numbers in the series
                 for (int i = 1; i <= n; i++)
                     {
-                        for (int j = 1; (j <= i && counter < n); j++ )
+                        for (int j = 1; (j <= i && counter < n); j++ ) 
                         {
                             Console.Write(i);
                         if (counter < n - 1) // To avoid getting "," at end of string
@@ -102,13 +104,13 @@ namespace Assignment1_F19
                 Console.WriteLine();
                 for (int i = n; i > 0; i--) 
                 {
-                    for (int j = 0; j < n - i; j++)
+                    for (int j = 0; j < n - i; j++) // This For loop is used to get the required spaces
 
                     {
-                        Console.Write(" "); // To get the required spaces
+                        Console.Write(" "); 
 
                     }
-                    for (int j = 0; j < (i * 2) - 1; j++)
+                    for (int j = 0; j < (i * 2) - 1; j++) // This For loop is used to get the required * characters
                     {
                         Console.Write("*");
                     }
@@ -127,13 +129,13 @@ namespace Assignment1_F19
             {
                 int[] jewels_array = new int[S.Length]; // Array to store values of jewels which match
                 int count = 0;
-                for (int i = 0; i < J.Length; i++)
+                for (int i = 0; i < J.Length; i++) // For Loop to iterate through Jewels 
                 {
-                    for (int j = 0; j < S.Length; j++)
+                    for (int j = 0; j < S.Length; j++) // For loop to iterate through Stones
                     {
-                        if (J[i] == S[j]) // Comparing the 2 arrays
+                        if (J[i] == S[j]) // Comparing the 2 arrays to find common jewels
                         {
-                            jewels_array[count] = S[j]; //Adding values to jewels array
+                            jewels_array[count] = S[j]; // Adding values to jewels array
                             count++;
 
                         }
